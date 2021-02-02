@@ -1,7 +1,7 @@
 const express= require('express');
 const bodyparser= require('body-parser');
 const mongoose= require('mongoose');
-
+const Todo = require ("./model/todo")
 
  const app= express();
 
@@ -20,8 +20,11 @@ app.set("view engine", "ejs")
 
 
 
-app.get("/", (req, res)=>{
+app.get("/", async (req, res)=>{
 
+   await new Todo({
+       name:"dummy task"
+   })
 
     res.render("index.ejs")
 })
