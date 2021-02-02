@@ -8,5 +8,19 @@
 </head>
 <body>
     <h1>Hello from INDEX.EJS</h1>
+
+    <% for(let i=0; i <data.lenght; i++) { %>
+    
+        <div>  <%= data[i].name %>
+            <span>
+                 <%= data[i].date %>
+             </span>
+        
+        </div>
+    
+    
+    <% } %>
+
+     
 </body>
 </html>

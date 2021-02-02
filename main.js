@@ -14,23 +14,14 @@ app.use(bodyparser.urlencoded({extended:false}))
  
 app.set("view engine", "ejs")
 
-
-
-
-
-
-
 app.get("/", async (req, res)=>{
 
-   await new Todo({
-       name:"dummy task"
-   })
-
-    res.render("index.ejs")
+    const data= await Todo.find()
+    
+    res.render("index.ejs", {data:data})
 })
 
-//burayi sormak lazim
-mongoose.connect("mongodb+srv://emresorkun:EmreSorkun12!@cluster0.btpe6.mongodb.net/toDoEmre?retryWrites=true&w=majority", 
+mongoose.connect("mongodb+srv://emresorkun:EmreSorkun12!@cluster0.btpe6.mongodb.net/toDoEmre2?retryWrites=true&w=majority", 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
