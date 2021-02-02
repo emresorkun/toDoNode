@@ -6,7 +6,7 @@ const mongoose= require('mongoose');
  const app= express();
 
 //app.use(express.json())
-app.use(express.static(__dirname + "puclic"))
+app.use(express.static(__dirname + "/public"))
 
 app.use(bodyparser.urlencoded({extended:false}))
 
