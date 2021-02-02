@@ -10,7 +10,7 @@ const mongoose= require('mongoose');
 
 app.use(bodyparser.urlencoded({extended:false}))
 //burayi sormak lazim
-mongoose.connect("mongodb+srv://fed20s:Fed20s@cluster0.bpwjg.mongodb.net/emreTodo?retryWrites=true&w=majority", 
+mongoose.connect("mongodb+srv://emresorkun:EmreSorkun12!@cluster0.btpe6.mongodb.net/toDoEmre?retryWrites=true&w=majority", 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
