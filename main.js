@@ -17,9 +17,29 @@ app.set("view engine", "ejs")
 app.get("/", async (req, res)=>{
 
     const data= await Todo.find()
-    
+
     res.render("index.ejs", {data:data})
 })
+
+
+
+app.post("/", async (req, res)=>{
+
+    console.log (req.body.name)
+
+    await new Todo({
+        name:req.body.name
+    }).save();
+
+    res.redirect("/")
+
+
+    // res.send("it works")
+})
+
+
+
+
 
 mongoose.connect("mongodb+srv://emresorkun:EmreSorkun12!@cluster0.btpe6.mongodb.net/toDoEmre2?retryWrites=true&w=majority", 
 {
