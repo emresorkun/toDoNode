@@ -33,11 +33,16 @@ app.post("/", async (req, res)=>{
 
     res.redirect("/")
 
-
-    // res.send("it works")
 })
 
+app.get("/delete/:id", async (req, res)=>{
 
+
+    await Todo.deleteOne({_id:req.params.id})
+    res.redirect("/")
+    console.log("deleting content")
+
+} )
 
 
 
