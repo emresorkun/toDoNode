@@ -77,7 +77,7 @@ mongoose.connect(process.env.DATABASE_URL,
     useUnifiedTopology: true
 }, (err)=>{
 if (err) return
-app.listen(8000, ()=>{
+app.listen(process.env.PORT, ()=>{
         console.log("App is running")
 })
 
