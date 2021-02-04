@@ -1,9 +1,14 @@
 body
 {
-    background-color: red;
+    background-color:darkkhaki;
 
 }
 h1
 {
-    color: blue;
+    color: black;
+}
+
+button
+{
+    border-radius: 85%;
 }

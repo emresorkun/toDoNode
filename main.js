@@ -1,7 +1,8 @@
 const express= require('express');
 const bodyparser= require('body-parser');
 const mongoose= require('mongoose');
-const Todo = require ("./model/todo")
+const Todo = require ("./model/todo");
+require("dotenv").config();
 
  const app= express();
 
@@ -70,7 +71,7 @@ app.post("/edit", async (req,res)=>{
 
 
 
-mongoose.connect("mongodb+srv://emresorkun:EmreSorkun12!@cluster0.btpe6.mongodb.net/toDoEmre2?retryWrites=true&w=majority", 
+mongoose.connect(process.env.DATABASE_URL, 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
