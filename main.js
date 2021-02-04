@@ -44,6 +44,25 @@ app.get("/delete/:id", async (req, res)=>{
 
 } )
 
+app.get("/edit/:id", async (req, res)=>{
+
+
+    const todo=await Todo.findOne({_id:req.params.id})
+
+    console.log(todo)
+
+    res.render("edit.ejs", {todo:todo})
+    //console.log("editing content")
+
+} )
+
+app.post("/edit", (req,res)=>{
+
+    console.log(req.body)
+    res.send("works")
+})
+
+
 
 
 mongoose.connect("mongodb+srv://emresorkun:EmreSorkun12!@cluster0.btpe6.mongodb.net/toDoEmre2?retryWrites=true&w=majority", 
