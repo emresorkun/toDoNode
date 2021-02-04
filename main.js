@@ -56,10 +56,15 @@ app.get("/edit/:id", async (req, res)=>{
 
 } )
 
-app.post("/edit", (req,res)=>{
+app.post("/edit", async (req,res)=>{
 
     console.log(req.body)
-    res.send("works")
+    await Todo.updateOne( {_id:req.body.id}, {
+        name:req.body.name
+    })
+
+
+    res.redirect("/")
 })
 
 
