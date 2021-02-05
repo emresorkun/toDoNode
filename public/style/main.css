@@ -12,3 +12,7 @@ button
 {
     border-radius: 85%;
 }
+
+.danger{
+    color: red;    
+}
