@@ -7,24 +7,29 @@ const router= express.Router();
 
 
 
-
-
-
 router.get("/", async (req, res)=>{
+//query string
+    console.log(req.query)
+
 try{
     const data= await Todo.find()
+
     console.log(data)
-    res.render("index.ejs", {data:data, error:"  "})
+    //res.render("index.ejs", {data:data, error:"  "}) (buraya bir goz at)
+    res.render("index.ejs", {data:data, error:"empty"})
 }
 
 catch(err){
-    const error= err     
-    res.render("error.ejs", { error: error })
+    //const error= err     
+    //burada sikinti var 
+    res.render("error.ejs", {error: err})
     }
 
 
 
-})path.join(__dirname, scss)
+})
+
+//path.join(__dirname, scss)
 
 
 
@@ -36,7 +41,6 @@ router.post("/", async (req, res)=>{
     await new Todo({
         name:req.body.name
     }).save();
-
     res.redirect("/")
     }
     catch(err){
@@ -47,9 +51,8 @@ router.post("/", async (req, res)=>{
 })
 
 router.get("/edit/:id", async (req, res)=>{
- 
+     console.log(req.query)
     const todo=await Todo.findOne({_id:req.params.id})
-
     console.log(todo)
 
     res.render("edit.ejs", {todo:todo})
