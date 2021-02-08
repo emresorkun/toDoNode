@@ -2,7 +2,7 @@ const mongoose= require("mongoose");
 
 const todoSchema= new mongoose.Schema({
 
-    name: {type:String, required:true, minlength: 6, maxlength:30},
+    name: {type:String, required:true, minlength: 4, maxlength:30, lowercase:true},
     date: {type: Date, default: Date.now}
 })
 
