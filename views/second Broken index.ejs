@@ -15,16 +15,14 @@
      <%- include("add-data.ejs") %>
 
 
-     <% if(typeof error !== undefined && error !=="empty") { %>
+    <% if(typeof error !== undefined && error !=="empty") { %>
       <%- include("error.ejs") %>
     <%  } %>
      
-      
-
-
+    
 
     <a href="/?page=-1">Sort ToDo (Z-A)</a>
-    <a href="/?page=1">Sort ToDo (A-Z)</a> 
+    <a href="/?page=1">Sort ToDo (A-Z)</a>  
 
      <% for(let i=0; i<data.length; i++) { %>
      <div>  <%= data[i].name %> .
@@ -32,15 +30,41 @@
           date:
           <%=  data[i].date %>
         </span>
+
         <a href="/edit/<%= data[i]._id %>" > edit  </a> 
          
         <a href="/delete/<%= data[i]._id %>"  > delete </a> 
            
      </div>
        
-         
+     <% } %>
+
+<!-- 
+     <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
+      <a href="/?page=<%=(dataToShow/dataToShowPerReq) +1%>"> 
+          Visa flera
+        </a>
+    <% } else {   %>
+      <a href="/?page=1"> 
+          visa mindre
+        </a>
+    <% } %> -->
+<!--      
     <% } %>
   
-      
+     <% if (totalData !== dataToShow/dataToShowPerReq) { %>
+
+        <a href="/?page=<%=(dataToShow/dataToShowPerReq)">
+          Show More
+        </a>
+
+     <% } else { %>
+
+      <a href="/?page=1">
+        Show Less
+      </a>
+
+      <% } %>
+       -->
 </body>
 </html>

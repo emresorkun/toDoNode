@@ -17,15 +17,32 @@ const router= express.Router();
 router.get("/", async (req, res)=>{
     //query string
 
-    const sortedName= +req.query.page;
+    const sorted= +req.query.page;
+    const page= +req.query.page;
 
 
 try{
-    const data = await Todo.find().sort({name:sortedName})
+
+
+    const totalData= await Todo.find().count();
+
+    const dataToShowPerReq = 2;
+
+    const totalDataPart = totalData/dataToShowPerReq;
+
+
+    const dataToShow = dataToShowPerReq * page
+
+
+    const data = await Todo.find().sort({name:sorted}).limit(dataToShowPerReq)
     
     res.render("index.ejs", 
-     {data,  
-        error:"empty"})
+    {data,
+    totalData,
+    totalDataPart,
+    dataToShow,
+    dataToShowPerReq,
+    error:"empty"})
 }
 
 
