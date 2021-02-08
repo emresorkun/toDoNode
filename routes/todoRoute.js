@@ -8,20 +8,20 @@ const router= express.Router();
 
 
 router.get("/", async (req, res)=>{
-//query string
-    console.log(req.query)
+    //query string
+    //console.log(req.query)
+
+     const sorted = +req.query.page;
 
 try{
-    const data= await Todo.find()
+    const data= await Todo.find().sort({name:sorted})
 
-    console.log(data)
+    //console.log(data)
     //res.render("index.ejs", {data:data, error:"  "}) (buraya bir goz at)
     res.render("index.ejs", {data:data, error:"empty"})
 }
 
 catch(err){
-    //const error= err     
-    //burada sikinti var 
     res.render("error.ejs", {error: err})
     }
 
